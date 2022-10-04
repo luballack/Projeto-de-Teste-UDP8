@@ -22,6 +22,11 @@ namespace teste_upd8.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// Redirect para View de Clientes
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Index() 
         { 
@@ -29,7 +34,11 @@ namespace teste_upd8.Controllers
             return View(clients);
         }
 
-
+        /// <summary>
+        /// Cadastro de Cliente
+        /// </summary>
+        /// <param name="model">{Name, CPF, Address, DateOfBirth, Gender, City, State}</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Add(AddClientViewModel addClientRequest)
         {
@@ -50,6 +59,11 @@ namespace teste_upd8.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Redirect para View de Edição de Cliente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Update(Guid id)
         {
@@ -73,6 +87,12 @@ namespace teste_upd8.Controllers
             
             return RedirectToAction("Index");
         }
+
+        /// <summary>
+        /// Edição de Cliente
+        /// </summary>
+        /// <param name="model">{Name, CPF, Address, DateOfBirth, Gender, City, State}</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Update(UpdateClientViewModel model)
         {
@@ -94,6 +114,12 @@ namespace teste_upd8.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        /// <summary>
+        /// Cadastro de Cliente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Delete(Guid id)
         { 
@@ -107,7 +133,5 @@ namespace teste_upd8.Controllers
             }
             return RedirectToAction("Index");
         }
-
-
     }
 }
