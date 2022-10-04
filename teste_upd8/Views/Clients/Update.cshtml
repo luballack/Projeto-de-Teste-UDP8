@@ -85,6 +85,8 @@
     </form>
 </div>
 <script>
+    // Função para permitir apenas números na digitação de cpf
+    // (Ainda seria necessária uma validação no servidor pois é possível "colar" letras e dígitos") 
     function onlynumber(evt) {
         var theEvent = evt || window.event;
         var key = theEvent.keyCode || theEvent.which;

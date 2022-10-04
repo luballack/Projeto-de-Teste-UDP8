@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿// Função de configuração da DataTable
+$(document).ready(function () {
     $('#myTable').DataTable({
         "scrollY": "450px",
         "scrollCollapse": true,
@@ -17,6 +18,7 @@
     });
 })
 
+// Função de limitação de Data de Nascimento para Data Atual
 $(function () {
     $('[type="date"]').prop('max', function () {
         return new Date().toJSON().split('T')[0];
