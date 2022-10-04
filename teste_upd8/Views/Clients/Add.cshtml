@@ -1,0 +1,95 @@
+﻿@model teste_upd8.Models.AddClientViewModel
+
+
+@{
+}
+<h1>Cadastrar Cliente</h1>
+<form method="post" action="Add">
+    <div class="form-row" style="margin-bottom: 2rem">
+        <div class="col">
+            <label for="" class="form-label">Nome:</label>
+            <input required type="text" maxlength="150" class="form-control" asp-for="Name">
+        </div>
+        <div class="col" style="margin-left: 5rem">
+            <label for="" class="form-label">CPF:</label>
+            <input required title="Somente números" type="text" name="cpf" onkeypress="return onlynumber();" maxlength="11" minlength="11" class="form-control" asp-for="CPF">
+        </div>
+    </div>
+    <div class="form-row" style="margin-bottom: 2rem">
+        <div class="col">
+            <label for="" class="form-label">Data Nascimento:</label>
+            <input required id="max" type="date" min="1900-01-01" class="form-control" asp-for="DateOfBirth">
+        </div>
+        <div class="col" style="margin-left: 5rem">
+            <label for="" class="form-label">Sexo:</label>
+            <fieldset style="text-align: center;margin: auto;">
+                <input required type="radio" id="sex-m" value='M' asp-for="Gender">
+                <label for="sex-m">Masculino</label>
+                <input style="margin-left: 5rem" type="radio" id="sex-f" value='F' asp-for="Gender">
+                <label for="sex-f">Feminino</label>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Endereço:</label>
+        <input required type="text" maxlength="150" class="form-control" asp-for="Address">
+    </div>
+    
+    <div class="form-row" style="margin-bottom: 2rem">
+        <div class="col">
+            <label for="" class="form-label">Estado:</label>
+            <br>
+            <select class="form-select" name="State" asp-for="State">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+        </div>
+        <div class="col" style="margin-left: 5rem">
+            <label for="" class="form-label">Cidade:</label>
+            <input required type="text" maxlength="150" class="form-control" asp-for="City">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="reset" style="margin-left: 1rem" class="btn btn-secondary">Limpar</button>
+</form>
+
+<script>
+    function onlynumber(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        //var regex = /^[0-9.,]+$/;
+        var regex = /^[0-9]+$/;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>
+

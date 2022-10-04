@@ -1,0 +1,41 @@
+﻿@model List<teste_upd8.Models.Domain.Client>
+
+@{
+}
+
+<h1>Clientes</h1>
+
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data Nasc.</th>
+            <th>Estado</th>
+            <th>Cidade</th>
+            <th>Sexo</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var client in Model){
+            <tr>
+                <td>@client.Name</td>
+                <td>@client.CPF</td>
+                <td>@client.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                <td>@client.State</td>
+                <td>@client.City</td>
+                <td>@client.Gender</td>
+                <td>
+                    <button type="submit" class="btn btn-success" onclick="location.href = 'Clients/Update/@client.Id';">Editar</button>
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@client.Id">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esse cliente?')">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>                     
